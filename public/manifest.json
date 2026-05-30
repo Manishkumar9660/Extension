@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "AI Context Bridge",
+  "version": "1.1.0",
+  "description": "Capture conversation contexts from any AI tool and migrate/continue them elsewhere. 100% offline, local-first, with secure local encryption.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://gemini.google.com/*",
+    "https://www.perplexity.ai/*",
+    "https://grok.com/*",
+    "https://copilot.microsoft.com/*",
+    "https://www.bing.com/chat*",
+    "https://you.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI Context Bridge"
+  },
+  "options_page": "dashboard.html",
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*"
+      ],
+      "js": ["content-chatgpt.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://www.perplexity.ai/*",
+        "https://grok.com/*",
+        "https://copilot.microsoft.com/*",
+        "https://www.bing.com/chat*",
+        "https://you.com/*",
+        "https://claude.ai/*"
+      ],
+      "js": ["content-capture.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://claude.ai/*"],
+      "js": ["content-claude.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

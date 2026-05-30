@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #030712;
+    color: #f3f4f6;
+    font-family: 'Outfit', 'Inter', sans-serif;
+  }
+  
+  /* Modern premium scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #030712;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #1f2937;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* Premium Custom Cyber Classes */
+
+.cyber-glass {
+  background: rgba(11, 15, 25, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(31, 41, 55, 0.65);
+}
+
+.cyber-glass-glow {
+  background: rgba(11, 15, 25, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), 0 0 15px rgba(59, 130, 246, 0.1);
+}
+
+.cyber-border-glow-primary {
+  transition: all 0.3s ease;
+}
+.cyber-border-glow-primary:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.25);
+}
+
+.cyber-border-glow-secondary {
+  transition: all 0.3s ease;
+}
+.cyber-border-glow-secondary:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+}
+
+.cyber-border-glow-accent {
+  transition: all 0.3s ease;
+}
+.cyber-border-glow-accent:hover {
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+}
+
+.neon-text-primary {
+  color: #3b82f6;
+  text-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+.neon-text-secondary {
+  color: #a855f7;
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+}
+
+.neon-text-accent {
+  color: #10b981;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+}
+
+/* Page fade transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+/* Markdown parsing details inside conversation previews */
+.markdown-body pre {
+  background: #030712 !important;
+  border: 1px solid #1f2937;
+  border-radius: 6px;
+  padding: 10px;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+}
+.markdown-body code {
+  font-family: 'Fira Code', monospace;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
